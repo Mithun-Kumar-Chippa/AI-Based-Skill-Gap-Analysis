@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AI Skill Gap Analysis System</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#667eea,#764ba2);
+margin:0;
+padding:0;
+}
+
+.container{
+width:750px;
+margin:40px auto;
+background:white;
+padding:35px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.section{
+margin-top:25px;
+padding:18px;
+background:#f4f6ff;
+border-left:6px solid #667eea;
+border-radius:6px;
+}
+
+.section h3{
+margin-top:0;
+}
+
+label{
+font-weight:bold;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:6px;
+margin-bottom:15px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.subject{
+background:#eef1ff;
+padding:15px;
+border-radius:6px;
+margin-bottom:15px;
+}
+
+.radio-group label{
+font-weight:normal;
+display:block;
+margin-bottom:6px;
+}
+
+.checkbox-group label{
+font-weight:normal;
+display:block;
+margin-bottom:6px;
+}
+
+button{
+width:100%;
+padding:14px;
+background:#667eea;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#434190;
+}
+
+.footer{
+text-align:center;
+margin-top:15px;
+color:#666;
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>AI-Based Skill Gap Analysis System</h2>
+
+<form action="SkillServlet" method="post">
+
+<div class="section">
+
+<h3>Student Academic Information</h3>
+
+<label>Student Name</label>
+<input type="text" name="name" required>
+
+<label>Course</label>
+<select name="course">
+<option>B.Tech CSE</option>
+<option>B.Tech IT</option>
+<option>B.Tech ECE</option>
+<option>B.Tech EEE</option>
+<option>B.Tech Mechanical</option>
+</select>
+
+<label>Year</label>
+<select name="year">
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+</select>
+
+<label>CGPA</label>
+<input type="number" step="0.01" name="cgpa">
+
+</div>
+
+<div class="section">
+
+<h3>Certifications</h3>
+
+<input type="text" name="certification" placeholder="Example: AWS, Python Certification">
+
+</div>
+
+<div class="section">
+
+<h3>Project Details</h3>
+
+<label>Project Title</label>
+<input type="text" name="project">
+
+<label>Technologies Used</label>
+<input type="text" name="technology">
+
+</div>
+
+<div class="section">
+
+<h3>Skill Assessment</h3>
+
+<div class="subject">
+
+<h4>Python</h4>
+
+<label>Actual Python Level</label>
+<input type="number" name="python_actual" min="1" max="10">
+
+<label>Required Python Level</label>
+<input type="number" name="python_required" min="1" max="10">
+
+</div>
+
+<div class="subject">
+
+<h4>Java</h4>
+
+<label>Actual Java Level</label>
+<input type="number" name="java_actual" min="1" max="10">
+
+<label>Required Java Level</label>
+<input type="number" name="java_required" min="1" max="10">
+
+</div>
+
+<div class="subject">
+
+<h4>Data Structures</h4>
+
+<label>Actual DSA Level</label>
+<input type="number" name="dsa_actual" min="1" max="10">
+
+<label>Required DSA Level</label>
+<input type="number" name="dsa_required" min="1" max="10">
+
+</div>
+
+<div class="subject">
+
+<h4>DBMS</h4>
+
+<label>Actual DBMS Level</label>
+<input type="number" name="dbms_actual" min="1" max="10">
+
+<label>Required DBMS Level</label>
+<input type="number" name="dbms_required" min="1" max="10">
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>Skills Already Known</h3>
+
+<div class="checkbox-group">
+
+<label><input type="checkbox" name="skills" value="Python"> Python</label>
+<label><input type="checkbox" name="skills" value="Java"> Java</label>
+<label><input type="checkbox" name="skills" value="Data Structures"> Data Structures</label>
+<label><input type="checkbox" name="skills" value="DBMS"> DBMS</label>
+<label><input type="checkbox" name="skills" value="Web Development"> Web Development</label>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>Preferred Learning Style</h3>
+
+<div class="radio-group">
+
+<label><input type="radio" name="learning_style" value="Video Tutorials"> Video Tutorials</label>
+<label><input type="radio" name="learning_style" value="Practice Coding"> Practice Coding</label>
+<label><input type="radio" name="learning_style" value="Reading Documentation"> Reading Documentation</label>
+<label><input type="radio" name="learning_style" value="Project Based Learning"> Project Based Learning</label>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>Career Goal</h3>
+
+<select name="career">
+
+<option>Software Developer</option>
+<option>Data Scientist</option>
+<option>Web Developer</option>
+<option>Machine Learning Engineer</option>
+<option>Database Administrator</option>
+
+</select>
+
+</div>
+
+<button type="submit">Analyze Skill Gap</button>
+
+</form>
+
+<div class="footer">
+AI Skill Gap Analysis System | Student Project
+</div>
+
+</div>
+
+</body>
+</html>
