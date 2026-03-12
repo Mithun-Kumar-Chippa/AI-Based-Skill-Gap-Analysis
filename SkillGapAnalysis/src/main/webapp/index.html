@@ -95,6 +95,37 @@ font-size:13px;
 }
 
 </style>
+
+<script>
+
+function checkAssessment(){
+
+if(document.getElementById("python_actual").value==""){
+alert("Please complete Python assessment");
+return false;
+}
+
+if(document.getElementById("java_actual").value==""){
+alert("Please complete Java assessment");
+return false;
+}
+
+if(document.getElementById("dsa_actual").value==""){
+alert("Please complete DSA assessment");
+return false;
+}
+
+if(document.getElementById("dbms_actual").value==""){
+alert("Please complete DBMS assessment");
+return false;
+}
+
+return true;
+
+}
+
+</script>
+
 </head>
 
 <body>
@@ -103,8 +134,7 @@ font-size:13px;
 
 <h2>AI-Based Skill Gap Analysis System</h2>
 
-<form action="SkillServlet" method="post">
-
+<form action="SkillServlet" method="post" onsubmit="return checkAssessment()">
 <div class="section">
 
 <h3>Student Academic Information</h3>
@@ -162,11 +192,14 @@ font-size:13px;
 
 <h4>Python</h4>
 
-<label>Actual Python Level</label>
-<input type="number" name="python_actual" min="1" max="10">
+<input type="hidden" id="python_actual" name="python_actual">
 
 <label>Required Python Level</label>
 <input type="number" name="python_required" min="1" max="10">
+
+<button type="button" onclick="location.href='python_test.html'">
+Take Python Assessment
+</button>
 
 </div>
 
@@ -174,11 +207,14 @@ font-size:13px;
 
 <h4>Java</h4>
 
-<label>Actual Java Level</label>
-<input type="number" name="java_actual" min="1" max="10">
+<input type="hidden" id="java_actual" name="java_actual">
 
 <label>Required Java Level</label>
 <input type="number" name="java_required" min="1" max="10">
+
+<button type="button" onclick="location.href='java_test.html'">
+Take Java Assessment
+</button>
 
 </div>
 
@@ -186,11 +222,14 @@ font-size:13px;
 
 <h4>Data Structures</h4>
 
-<label>Actual DSA Level</label>
-<input type="number" name="dsa_actual" min="1" max="10">
+<input type="hidden" id="dsa_actual" name="dsa_actual">
 
 <label>Required DSA Level</label>
 <input type="number" name="dsa_required" min="1" max="10">
+
+<button type="button" onclick="location.href='dsa_test.html'">
+Take DSA Assessment
+</button>
 
 </div>
 
@@ -198,11 +237,14 @@ font-size:13px;
 
 <h4>DBMS</h4>
 
-<label>Actual DBMS Level</label>
-<input type="number" name="dbms_actual" min="1" max="10">
+<input type="hidden" id="dbms_actual" name="dbms_actual">
 
 <label>Required DBMS Level</label>
 <input type="number" name="dbms_required" min="1" max="10">
+
+<button type="button" onclick="location.href='dbms_test.html'">
+Take DBMS Assessment
+</button>
 
 </div>
 
@@ -264,6 +306,34 @@ AI Skill Gap Analysis System | Student Project
 </div>
 
 </div>
+<script>
+
+window.onload = function(){
+
+let pythonScore = localStorage.getItem("python_score");
+let javaScore = localStorage.getItem("java_score");
+let dsaScore = localStorage.getItem("dsa_score");
+let dbmsScore = localStorage.getItem("dbms_score");
+
+if(pythonScore){
+document.getElementById("python_actual").value = pythonScore;
+}
+
+if(javaScore){
+document.getElementById("java_actual").value = javaScore;
+}
+
+if(dsaScore){
+document.getElementById("dsa_actual").value = dsaScore;
+}
+
+if(dbmsScore){
+document.getElementById("dbms_actual").value = dbmsScore;
+}
+
+}
+
+</script>
 
 </body>
 </html>
